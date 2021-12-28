@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import RandomPage from "./pages/RandomPage/RandomPage";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
 
         <Route exact path='/'>
             <SearchPage />
+        </Route>
+
+        <Route exact path="/random">
+            <RandomPage />
         </Route>
 
       </Switch>

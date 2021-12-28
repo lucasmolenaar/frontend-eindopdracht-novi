@@ -1,0 +1,16 @@
+@import '/src/styles/variables';
+
+.generate-recipe-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $darkColor;
+  font-family: 'Poppins', sans-serif;
+
+  h1 {
+    margin: 0;
+  }
+}

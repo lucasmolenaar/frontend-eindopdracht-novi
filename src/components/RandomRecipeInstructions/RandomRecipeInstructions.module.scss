@@ -1,0 +1,28 @@
+@import './src/styles/variables';
+
+.section {
+  width: 100%;
+  color: $darkColor;
+  background-color: #FFF;
+
+  .recipe-instructions {
+    width: 70%;
+    margin: auto;
+    padding: 1rem 0;
+
+
+    .title {
+      font-family: 'Neucha', cursive;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .instructions-list {
+      margin: 0 ;
+
+      .instruction {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+}
