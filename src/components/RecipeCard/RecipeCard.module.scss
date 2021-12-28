@@ -1,0 +1,41 @@
+@import "/src/styles/variables";
+
+.recipe-card {
+  font-family: 'Poppins', sans-serif;
+  width: 300px;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  border-radius: 10px;
+
+  .title {
+    text-align: center;
+    flex: 1;
+    font-family: 'Neucha', cursive;
+    color: $darkColor;
+    font-size: 1.8rem;
+  }
+
+  .recipe-img {
+    width: 250px;
+    flex: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .recipe-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem;
+
+    p {
+      margin: 0;
+    }
+  }
+}

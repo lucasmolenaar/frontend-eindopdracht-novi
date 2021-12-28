@@ -1,0 +1,15 @@
+@import '/src/styles/variables';
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  margin-bottom: -10vh;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $darkColor;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
