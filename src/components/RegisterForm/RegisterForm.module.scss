@@ -1,0 +1,29 @@
+@import '/src/styles/variables.scss';
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 70%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+
+    h1 {
+        font-size: 55px;
+        font-weight: 300;
+        margin: 0 0 1rem 0;
+        color: $darkColor;
+    }
+
+    p {
+        .signin-link {
+            color: $primaryColor;
+            font-weight: 300;
+            text-decoration: none;
+
+            &:hover {
+                border-bottom: 1px solid $primaryColor;
+            }
+        }
+    }
+}
