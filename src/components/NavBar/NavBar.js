@@ -16,8 +16,8 @@ const NavBar = () => {
                 <ul className={styles['nav-items']}>
                     <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/">Search</NavLink></li>
                     <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/random">Random</NavLink></li>
-                    <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/daily-mealplan">Daily Mealplan</NavLink></li>
-                    <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/weekly-mealplan">Weekly Mealplan</NavLink></li>
+                    <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/daily">Daily Mealplan</NavLink></li>
+                    <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/weekly">Weekly Mealplan</NavLink></li>
                 </ul>
 
                 <div className={styles['login-register']}>
