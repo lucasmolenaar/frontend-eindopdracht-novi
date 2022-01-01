@@ -9,7 +9,7 @@ function MealplanNutrition({ nutrients }) {
     return (
         <section className={styles.section}>
             <div className={styles['nutrition-container']}>
-                <IconContext.Provider value={{ size: '4em'}}>
+                <IconContext.Provider value={{ size: '3em'}}>
                     <NutrientContainer
                         nutrient={nutrients.calories}
                         icon={<FaBurn />}

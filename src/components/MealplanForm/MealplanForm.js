@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import Button from "../Button/Button";
 
 import styles from './MealplanForm.module.scss';
 
-const MealplanForm = ({ submitHandler }) => {
-    const [calories, setCalories] = useState('');
+const MealplanForm = ({ submitHandler, calories, diet, setCalories, setDiet}) => {
+    // const [calories, setCalories] = useState('');
+    // const [diet, setDiet] = useState('');
 
     return (
         <form className={styles.form} onSubmit={submitHandler}>
@@ -22,6 +23,8 @@ const MealplanForm = ({ submitHandler }) => {
             <select
                 name="diet"
                 className={styles['select-diet']}
+                value={diet}
+                onChange={(e) => setDiet(e.target.value)}
             >
                 <option value="">Diet</option>
                 <option value="glutenfree">Gluten Free</option>

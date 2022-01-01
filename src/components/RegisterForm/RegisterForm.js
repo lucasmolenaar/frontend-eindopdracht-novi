@@ -5,6 +5,7 @@ import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './RegisterForm.module.scss';
+import {Link} from "react-router-dom";
 
 const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -53,7 +54,7 @@ const RegisterForm = () => {
                     Register
                 </Button>
 
-                <p>Already have an account? <a href='/' className={styles['signin-link']}>Sign in</a></p>
+                <p>Already have an account? <Link to='/login' className={styles['signin-link']}>Sign in</Link></p>
             </form>
     );
 }

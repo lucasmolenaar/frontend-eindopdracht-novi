@@ -72,7 +72,7 @@ const SearchPage = () => {
             {loading && <LoadingRoller />}
 
             {
-                searchQuery || cuisine ?
+                searchedRecipes ?
                     <section className={styles['recipes-container']}>
                         <ul className={styles['recipe-list']}>
                             {searchedRecipes.map(recipe => {
@@ -96,7 +96,7 @@ const SearchPage = () => {
                     </div>
             }
 
-            <Footer bgColor={searchQuery || cuisine ? '#FFF' : '#F1EEE9'}/>
+            <Footer bgColor='#FFF'/>
         </div>
     );
 };

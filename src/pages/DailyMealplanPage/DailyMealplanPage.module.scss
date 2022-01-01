@@ -1,0 +1,27 @@
+@import '/src/styles/variables';
+
+.main {
+  color: $darkColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  min-height: 90vh;
+  position: relative;
+
+  .container {
+    width: 100%;
+
+    .meal-cards-container {
+
+      .meal-cards {
+        display: flex;
+        width: 80%;
+        margin: 1rem auto;
+        list-style: none;
+        justify-content: space-around;
+      }
+    }
+  }
+}
