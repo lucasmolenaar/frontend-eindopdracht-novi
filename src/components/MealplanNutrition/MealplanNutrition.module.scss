@@ -1,0 +1,18 @@
+@import '/src/styles/variables';
+
+.section {
+  width: 100%;
+  background-color: $secondaryColor;
+  margin-top: 2rem;
+}
+
+.nutrition-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+}

@@ -1,8 +1,9 @@
-@import "/src/styles/variables";
+@import '/src/styles/variables';
 
-.recipe-card {
+.meal-card {
   font-family: 'Poppins', sans-serif;
   width: 300px;
+  height: 300px;
   background: #FFF;
   display: flex;
   flex-direction: column;
@@ -19,16 +20,7 @@
     font-size: 1.8rem;
   }
 
-  .recipe-img {
-    width: 250px;
-    flex: 1;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  .recipe-info {
+  .info {
     flex: 1;
     display: flex;
     flex-direction: column;

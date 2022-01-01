@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import RandomPage from "./pages/RandomPage/RandomPage";
+import DailyMealplanPage from "./pages/DailyMealplanPage/DailyMealplanPage";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             <RandomPage />
         </Route>
 
+        <Route exact path="/daily">
+            <DailyMealplanPage />
+        </Route>
       </Switch>
     </div>
   );

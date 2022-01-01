@@ -10,6 +10,7 @@ import GetRandomRecipe from "../../components/GetRandomRecipe/GetRandomRecipe";
 import Footer from "../../components/Footer/Footer";
 
 import styles from './RandomPage.module.scss';
+import gif from '../../assets/giphy.gif';
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});
@@ -29,12 +30,12 @@ const RandomPage = () => {
     }
 
     return (
-        <div>
+        <div className={styles['random-page']}>
             <NavBar />
 
             {
                 Object.keys(randomRecipe).length > 0 ?
-                    <main className={styles.main}>
+                    <main>
                         <RandomRecipeInformation
                             recipe={randomRecipe}
                         />
@@ -52,10 +53,6 @@ const RandomPage = () => {
                             bgColor='#F1EEE9'
                             btnClickHandler={fetchRandomRecipe}
                         />
-
-                        <Footer
-                            bgColor='#FFF'
-                        />
                     </main>
                     :
                     <main>
@@ -64,14 +61,15 @@ const RandomPage = () => {
                             btnClickHandler={fetchRandomRecipe}
                         />
 
-                        <Footer
-                            bgColor='#F1EEE9'
-                        />
+                        <div className={styles['gif-container']}>
+                            <img className={styles.gif} src={gif} alt="gears"/>
+                        </div>
                     </main>
-
-
-
             }
+
+            <Footer
+                bgColor={Object.keys(randomRecipe).length > 0 ? '#fff' : '#F1EEE9'}
+            />
         </div>
     );
 };

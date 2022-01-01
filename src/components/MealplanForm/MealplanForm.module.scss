@@ -1,0 +1,19 @@
+@import '/src/styles/variables';
+
+.form {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.calories-input,
+.select-diet {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: $darkColor;
+  border: 1px solid $darkColor;
+  border-radius: 3px;
+  outline: none;
+  margin-right: 1rem;
+}
