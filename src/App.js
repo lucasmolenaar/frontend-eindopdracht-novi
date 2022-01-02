@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import RandomPage from "./pages/RandomPage/RandomPage";
 import DailyMealplanPage from "./pages/DailyMealplanPage/DailyMealplanPage";
+import WeeklyMealplanPage from "./pages/WeeklyMealplanPage/WeeklyMealplanPage";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
 
         <Route exact path="/daily">
             <DailyMealplanPage />
+        </Route>
+
+        <Route exact path="/weekly">
+            <WeeklyMealplanPage />
         </Route>
       </Switch>
     </div>
