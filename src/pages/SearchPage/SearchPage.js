@@ -15,11 +15,8 @@ const SearchPage = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    console.log(cuisine);
-    console.log(searchedRecipes)
-
     useEffect(() => {
-        const getRecipesByName = async () => {
+        const fetchRecipes = async () => {
             setLoading(true);
 
             try {
@@ -32,17 +29,16 @@ const SearchPage = () => {
             setLoading(false);
         }
 
-        if (searchQuery) {
-            getRecipesByName();
-        }
-    }, [searchQuery])
+            fetchRecipes();
+
+    }, [])
 
     useEffect(() => {
-        const getRecipesByCuisine = async () => {
+        const fetchRecipes = async () => {
             setLoading(true);
 
             try {
-                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${cuisine}&number=12&addRecipeNutrition=true`)
+                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&cuisine=${cuisine}&number=12&addRecipeNutrition=true`);
                 setSearchedRecipes(result.data.results);
             } catch (e) {
                 console.error(e);
@@ -51,9 +47,9 @@ const SearchPage = () => {
             setLoading(false);
         }
 
-        getRecipesByCuisine();
+        fetchRecipes();
 
-    }, [cuisine]);
+    }, [searchQuery, cuisine])
 
     return (
         <div className={styles['search-page']}>
@@ -76,7 +72,6 @@ const SearchPage = () => {
                     <section className={styles['recipes-container']}>
                         <ul className={styles['recipe-list']}>
                             {searchedRecipes.map(recipe => {
-                                console.log(recipe);
                                 return (
                                     <RecipeCard
                                         key={recipe.id}

@@ -13,7 +13,6 @@ const SearchForm = ({ setSearchQueryHandler, setCuisineHandler, searchedRecipes 
         e.preventDefault();
         setSearchQueryHandler(searchQuery);
         setCuisineHandler(cuisineValue);
-        console.log(searchQuery, searchedRecipes);
     }
 
     return (
@@ -30,7 +29,7 @@ const SearchForm = ({ setSearchQueryHandler, setCuisineHandler, searchedRecipes 
                 setCuisineValue={setCuisineValue}
             />
 
-            <Button buttonType="submit" buttonClass="search-button">
+            <Button buttonType="submit" buttonClass="search-button" disabled={!searchQuery && !cuisineValue}>
                 Search
             </Button>
         </form>
