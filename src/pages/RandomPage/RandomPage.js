@@ -8,8 +8,10 @@ import RandomRecipeIngredients from "../../components/RandomRecipeIngredients/Ra
 import RandomRecipeInstructions from "../../components/RandomRecipeInstructions/RandomRecipeInstructions";
 import GetRandomRecipe from "../../components/GetRandomRecipe/GetRandomRecipe";
 import Footer from "../../components/Footer/Footer";
+import Quote from "../../components/Quote/Quote";
 
 import styles from './RandomPage.module.scss';
+
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});
@@ -59,6 +61,8 @@ const RandomPage = () => {
                             text="Don't know what to cook? Generate a random recipe!"
                             btnClickHandler={fetchRandomRecipe}
                         />
+
+                        <Quote />
                     </main>
             }
 
