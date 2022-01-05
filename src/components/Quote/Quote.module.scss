@@ -1,0 +1,41 @@
+@import '/src/styles/variables';
+
+.quote {
+  margin:1em auto;
+  overflow:hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: $darkColor;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+
+  blockquote {
+    background-color: #FFF;
+    border: solid 2px #757575;
+    display: inline-block;
+    width: 75%;
+    margin: 0 auto;
+    padding: 1em;
+    position: relative;
+
+    &:before {
+      background-color: #FFF;
+      bottom: -10%;
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -10%;
+      transform: rotate(-15deg) skew(5deg);
+    }
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .did-you-know {
+      font-family: 'Neucha', cursive;
+    }
+  }
+}

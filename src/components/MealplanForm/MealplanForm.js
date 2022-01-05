@@ -5,9 +5,6 @@ import Button from "../Button/Button";
 import styles from './MealplanForm.module.scss';
 
 const MealplanForm = ({ submitHandler, calories, diet, setCalories, setDiet}) => {
-    // const [calories, setCalories] = useState('');
-    // const [diet, setDiet] = useState('');
-
     return (
         <form className={styles.form} onSubmit={submitHandler}>
             <input

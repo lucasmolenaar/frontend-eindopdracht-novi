@@ -6,6 +6,7 @@ import MealplanForm from "../../components/MealplanForm/MealplanForm";
 import MealplanNutrition from "../../components/MealplanNutrition/MealplanNutrition";
 import MealplanRecipeCard from "../../components/MealplanRecipeCard/MealplanRecipeCard";
 import Footer from "../../components/Footer/Footer";
+import Quote from "../../components/Quote/Quote";
 
 import styles from './DailyMealplanPage.module.scss';
 
@@ -46,7 +47,7 @@ const DailyMealplanPage = () => {
             </header>
 
             {
-                Object.keys(nutrients).length > 0 &&
+                Object.keys(nutrients).length > 0 ?
                     <div className={styles.container}>
                         <MealplanNutrition
                             nutrients={nutrients}
@@ -71,6 +72,8 @@ const DailyMealplanPage = () => {
                             </ul>
                         </section>
                     </div>
+                    :
+                    <Quote />
             }
 
             <Footer bgColor='#F1EEE9'/>
