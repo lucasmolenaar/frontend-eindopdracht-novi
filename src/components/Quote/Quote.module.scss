@@ -7,12 +7,14 @@
   display: flex;
   justify-content: center;
   color: $darkColor;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
 
   blockquote {
     background-color: #FFF;
     border: solid 2px #757575;
     display: inline-block;
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
     padding: 1em;
     position: relative;

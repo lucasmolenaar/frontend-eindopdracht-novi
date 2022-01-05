@@ -6,6 +6,7 @@ import styles from './WeeklyMealplanPage.module.scss';
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import MealsPerDay from "../../components/MealsPerDay/MealsPerDay";
+import Quote from "../../components/Quote/Quote";
 
 const WeeklyMealplanPage = () => {
     const [week, setWeek] = useState({});
@@ -43,7 +44,7 @@ const WeeklyMealplanPage = () => {
 
             <main>
                 {
-                    Object.keys(week).length > 0 &&
+                    Object.keys(week).length > 0 ?
                         <div>
                             <MealsPerDay
                                 info={week.monday}
@@ -80,6 +81,8 @@ const WeeklyMealplanPage = () => {
                                 day='Sunday'
                             />
                         </div>
+                        :
+                        <Quote />
                 }
             </main>
 

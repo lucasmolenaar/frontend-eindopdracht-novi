@@ -11,7 +11,7 @@ const Quote = () => {
         <div className={styles.quote}>
             <blockquote>
                 <h1 className={styles['did-you-know']}>Did you know...</h1>
-                <p>{facts[getRandomNumber(facts)].title} &ndash; {facts[getRandomNumber(facts)].content}</p>
+                <p>{facts[getRandomNumber(facts)].content}</p>
             </blockquote>
         </div>
     );
