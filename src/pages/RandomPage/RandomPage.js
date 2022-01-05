@@ -10,7 +10,6 @@ import GetRandomRecipe from "../../components/GetRandomRecipe/GetRandomRecipe";
 import Footer from "../../components/Footer/Footer";
 
 import styles from './RandomPage.module.scss';
-import gif from '../../assets/giphy.gif';
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});
@@ -60,10 +59,6 @@ const RandomPage = () => {
                             text="Don't know what to cook? Generate a random recipe!"
                             btnClickHandler={fetchRandomRecipe}
                         />
-
-                        <div className={styles['gif-container']}>
-                            <img className={styles.gif} src={gif} alt="gears"/>
-                        </div>
                     </main>
             }
 

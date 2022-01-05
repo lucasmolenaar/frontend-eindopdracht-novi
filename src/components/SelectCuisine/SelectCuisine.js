@@ -9,7 +9,7 @@ const SelectCuisine = ({ cuisineValue, setCuisineValue }) => {
             value={cuisineValue}
             onChange={(e) => setCuisineValue(e.target.value)}
         >
-            <option value="default">Cuisine</option>
+            <option value="">Cuisine</option>
             <option value="african">African</option>
             <option value="american">American</option>
             <option value="british">British</option>

@@ -3,21 +3,6 @@
 .random-page {
   position: relative;
   min-height: 90vh;
-
-  main {
-    .gif-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .gif {
-        height: 300px;
-        border-radius: 10px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      }
-    }
-  }
 }
 
 
