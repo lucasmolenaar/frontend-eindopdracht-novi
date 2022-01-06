@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
+import axios from "axios";
 
 import NavBar from "../../components/NavBar/NavBar";
-
-import axios from "axios";
 import RandomRecipeInformation from "../../components/RandomRecipeInformation/RandomRecipeInformation";
 import RandomRecipeIngredients from "../../components/RandomRecipeIngredients/RandomRecipeIngredients";
 import RandomRecipeInstructions from "../../components/RandomRecipeInstructions/RandomRecipeInstructions";
@@ -11,7 +10,6 @@ import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
 
 import styles from './RandomPage.module.scss';
-
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});

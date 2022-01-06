@@ -12,5 +12,12 @@
 
   header {
     height: 200px;
+
+    .calorie-error-text {
+      font-style: italic;
+      font-size: .8rem;
+      text-align: center;
+      color: $errorColor;
+    }
   }
 }
