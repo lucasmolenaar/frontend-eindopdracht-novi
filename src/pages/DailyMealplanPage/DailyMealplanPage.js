@@ -16,14 +16,20 @@ const DailyMealplanPage = () => {
     const [nutrients, setNutrients] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [calorieError, toggleCalorieError] = useState(false);
 
     const fetchMeals = async (e) => {
+        e.preventDefault();
         try {
-            e.preventDefault();
-            const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
-            console.log(result.data);
-            setMeals(result.data.meals);
-            setNutrients(result.data.nutrients)
+            if (calories >= 250) {
+                toggleCalorieError(false);
+
+                const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
+                setMeals(result.data.meals);
+                setNutrients(result.data.nutrients)
+            } else {
+                toggleCalorieError(true);
+            }
         } catch (e) {
             console.error(e);
         }
@@ -44,6 +50,8 @@ const DailyMealplanPage = () => {
                     setDiet={setDiet}
 
                 />
+
+                {calorieError && <p className={styles['calorie-error-text']}>Minimum amount of calories is 250, please try again.</p>}
             </header>
 
             {

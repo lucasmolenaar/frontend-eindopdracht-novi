@@ -12,14 +12,21 @@ const WeeklyMealplanPage = () => {
     const [week, setWeek] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [calorieError, toggleCalorieError] = useState(false);
 
     console.log(week);
     const fetchMeals = async (e) => {
+        e.preventDefault();
         try {
-            e.preventDefault();
-            const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=week&targetCalories=${calories}&diet=${diet}`);
-            console.log(result.data);
-            setWeek(result.data.week);
+            if (calories >= 250) {
+                toggleCalorieError(false);
+
+                const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=week&targetCalories=${calories}&diet=${diet}`);
+                console.log(result.data);
+                setWeek(result.data.week);
+            } else {
+                toggleCalorieError(true);
+            }
         } catch (e) {
             console.error(e);
         }
@@ -40,6 +47,8 @@ const WeeklyMealplanPage = () => {
                     setCalories={setCalories}
                     setDiet={setDiet}
                 />
+
+                {calorieError && <p className={styles['calorie-error-text']}>Minimum amount of calories is 250, please try again.</p>}
             </header>
 
             <main>
