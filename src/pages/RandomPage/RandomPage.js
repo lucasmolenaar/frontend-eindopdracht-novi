@@ -10,11 +10,14 @@ import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
 
 import styles from './RandomPage.module.scss';
+import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});
+    const [loading, toggleLoading] = useState(false);
 
     const fetchRandomRecipe = async () => {
+        toggleLoading(true);
         try {
             window.scrollTo({
                 top: 0,
@@ -26,6 +29,8 @@ const RandomPage = () => {
         } catch (e) {
             console.error(e);
         }
+
+        toggleLoading(false);
     }
 
     return (
@@ -60,7 +65,8 @@ const RandomPage = () => {
                             btnClickHandler={fetchRandomRecipe}
                         />
 
-                        <Quote />
+                        {loading ? <LoadingRoller /> : <Quote />}
+
                     </main>
             }
 

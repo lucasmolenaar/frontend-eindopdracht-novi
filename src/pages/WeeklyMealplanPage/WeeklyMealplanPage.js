@@ -7,17 +7,20 @@ import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import MealsPerDay from "../../components/MealsPerDay/MealsPerDay";
 import Quote from "../../components/Quote/Quote";
+import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 
 const WeeklyMealplanPage = () => {
     const [week, setWeek] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [loading, toggleLoading] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
 
     console.log(week);
     const fetchMeals = async (e) => {
         e.preventDefault();
         try {
+            toggleLoading(true);
             if (calories >= 250) {
                 toggleCalorieError(false);
 
@@ -30,6 +33,7 @@ const WeeklyMealplanPage = () => {
         } catch (e) {
             console.error(e);
         }
+        toggleLoading(false);
     }
 
 
@@ -91,7 +95,7 @@ const WeeklyMealplanPage = () => {
                             />
                         </div>
                         :
-                        <Quote />
+                        loading ? <LoadingRoller /> : <Quote />
                 }
             </main>
 

@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
 
 import styles from './DailyMealplanPage.module.scss';
+import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 
 const DailyMealplanPage = () => {
 
@@ -16,11 +17,13 @@ const DailyMealplanPage = () => {
     const [nutrients, setNutrients] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [loading, toggleLoading] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
 
     const fetchMeals = async (e) => {
         e.preventDefault();
         try {
+            toggleLoading(true);
             if (calories >= 250) {
                 toggleCalorieError(false);
 
@@ -33,6 +36,8 @@ const DailyMealplanPage = () => {
         } catch (e) {
             console.error(e);
         }
+
+        toggleLoading(false);
     }
 
     return (
@@ -81,7 +86,8 @@ const DailyMealplanPage = () => {
                         </section>
                     </div>
                     :
-                    <Quote />
+                    loading ? <LoadingRoller /> : <Quote />
+
             }
 
             <Footer bgColor='#F1EEE9'/>

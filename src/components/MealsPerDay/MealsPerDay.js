@@ -7,7 +7,7 @@ function MealsPerDay({ day, info }) {
     console.log(info)
 
     return (
-        <div>
+        <section className={styles.section}>
             <h1 className={styles.title}>{day}</h1>
 
             <ul className={styles['meals-per-day']}>
@@ -22,9 +22,7 @@ function MealsPerDay({ day, info }) {
                     );
                 })}
             </ul>
-
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aut blanditiis cupiditate dignissimos distinctio dolorum, eos est expedita harum laboriosam magnam minus molestiae molestias mollitia nemo neque non, nostrum odio officia quaerat quia recusandae repellendus similique tempora temporibus veniam vitae? Architecto laborum magni nam nobis repellendus suscipit tempora vel veniam.
-        </div>
+        </section>
     );
 }
 
