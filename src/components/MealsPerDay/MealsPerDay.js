@@ -1,6 +1,8 @@
 import React from 'react';
-import styles from './MealsPerDay.module.scss';
+
 import MealplanRecipeCard from "../MealplanRecipeCard/MealplanRecipeCard";
+
+import styles from './MealsPerDay.module.scss';
 
 function MealsPerDay({ day, info }) {
 
