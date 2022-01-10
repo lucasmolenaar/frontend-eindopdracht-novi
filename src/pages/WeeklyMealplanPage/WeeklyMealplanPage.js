@@ -7,9 +7,9 @@ import Footer from "../../components/Footer/Footer";
 import MealsPerDay from "../../components/MealsPerDay/MealsPerDay";
 import Quote from "../../components/Quote/Quote";
 import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
+import ErrorText from "../../components/ErrorText/ErrorText";
 
 import styles from './WeeklyMealplanPage.module.scss';
-import ErrorText from "../../components/ErrorText/ErrorText";
 
 const WeeklyMealplanPage = () => {
     const [week, setWeek] = useState({});
