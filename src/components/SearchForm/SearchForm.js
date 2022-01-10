@@ -13,6 +13,7 @@ const SearchForm = ({ setSearchQueryHandler, setCuisineHandler, searchedRecipes 
         e.preventDefault();
         setSearchQueryHandler(searchQuery);
         setCuisineHandler(cuisineValue);
+        setSearchQuery('');
     }
 
     return (

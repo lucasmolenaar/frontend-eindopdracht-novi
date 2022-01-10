@@ -1,0 +1,8 @@
+@import '/src/styles/variables';
+
+.error-text {
+  color: $errorColor;
+  text-align: center;
+  font-size: .8rem;
+  font-style: italic;
+}

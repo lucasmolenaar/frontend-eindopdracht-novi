@@ -1,22 +1,29 @@
 import React, {useState} from 'react';
+import axios from "axios";
+
 import NavBar from "../../components/NavBar/NavBar";
 import MealplanForm from "../../components/MealplanForm/MealplanForm";
-
-import styles from './WeeklyMealplanPage.module.scss';
-import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import MealsPerDay from "../../components/MealsPerDay/MealsPerDay";
 import Quote from "../../components/Quote/Quote";
+import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
+import ErrorText from "../../components/ErrorText/ErrorText";
+
+import styles from './WeeklyMealplanPage.module.scss';
 
 const WeeklyMealplanPage = () => {
     const [week, setWeek] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [loading, toggleLoading] = useState(false);
+    const [error, toggleError] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
 
     console.log(week);
     const fetchMeals = async (e) => {
         e.preventDefault();
+        toggleLoading(true);
+        toggleError(false);
         try {
             if (calories >= 250) {
                 toggleCalorieError(false);
@@ -28,8 +35,9 @@ const WeeklyMealplanPage = () => {
                 toggleCalorieError(true);
             }
         } catch (e) {
-            console.error(e);
+            toggleError(true);
         }
+        toggleLoading(false);
     }
 
 
@@ -50,6 +58,8 @@ const WeeklyMealplanPage = () => {
 
                 {calorieError && <p className={styles['calorie-error-text']}>Minimum amount of calories is 250, please try again.</p>}
             </header>
+
+            {error && <ErrorText />}
 
             <main>
                 {
@@ -91,7 +101,7 @@ const WeeklyMealplanPage = () => {
                             />
                         </div>
                         :
-                        <Quote />
+                        loading ? <LoadingRoller /> : <Quote />
                 }
             </main>
 

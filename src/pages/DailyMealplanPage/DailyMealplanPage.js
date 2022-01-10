@@ -7,6 +7,8 @@ import MealplanNutrition from "../../components/MealplanNutrition/MealplanNutrit
 import MealplanRecipeCard from "../../components/MealplanRecipeCard/MealplanRecipeCard";
 import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
+import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
+import ErrorText from "../../components/ErrorText/ErrorText";
 
 import styles from './DailyMealplanPage.module.scss';
 
@@ -16,23 +18,30 @@ const DailyMealplanPage = () => {
     const [nutrients, setNutrients] = useState({});
     const [calories, setCalories] = useState('');
     const [diet, setDiet] = useState('');
+    const [loading, toggleLoading] = useState(false);
+    const [error, toggleError] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
 
     const fetchMeals = async (e) => {
         e.preventDefault();
+        toggleLoading(true);
+        toggleError(false);
+
         try {
             if (calories >= 250) {
                 toggleCalorieError(false);
 
-                const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
+                const result = await axios.get(`https://api.spoonacular.com/mealplnner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
                 setMeals(result.data.meals);
                 setNutrients(result.data.nutrients)
             } else {
                 toggleCalorieError(true);
             }
         } catch (e) {
-            console.error(e);
+            toggleError(true);
         }
+
+        toggleLoading(false);
     }
 
     return (
@@ -53,6 +62,8 @@ const DailyMealplanPage = () => {
 
                 {calorieError && <p className={styles['calorie-error-text']}>Minimum amount of calories is 250, please try again.</p>}
             </header>
+
+            {error && <ErrorText />}
 
             {
                 Object.keys(nutrients).length > 0 ?
@@ -81,7 +92,8 @@ const DailyMealplanPage = () => {
                         </section>
                     </div>
                     :
-                    <Quote />
+                    loading ? <LoadingRoller /> : <Quote />
+
             }
 
             <Footer bgColor='#F1EEE9'/>

@@ -6,6 +6,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import Footer from "../../components/Footer/Footer";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
+import ErrorText from "../../components/ErrorText/ErrorText";
 
 import styles from './SearchPage.module.scss';
 
@@ -13,20 +14,22 @@ const SearchPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [cuisine, setCuisine] = useState('');
     const [searchedRecipes, setSearchedRecipes] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
     useEffect(() => {
         const fetchRecipes = async () => {
-            setLoading(true);
+            toggleLoading(true);
+            toggleError(false);
 
             try {
                 const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&number=12&addRecipeNutrition=true`);
                 setSearchedRecipes(result.data.results);
             } catch (e) {
-                console.error(e);
+                toggleError(true);
             }
 
-            setLoading(false);
+            toggleLoading(false);
         }
 
             fetchRecipes();
@@ -35,16 +38,18 @@ const SearchPage = () => {
 
     useEffect(() => {
         const fetchRecipes = async () => {
-            setLoading(true);
+            toggleLoading(true);
+            toggleError(false);
 
             try {
                 const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&cuisine=${cuisine}&number=12&addRecipeNutrition=true`);
                 setSearchedRecipes(result.data.results);
             } catch (e) {
+                toggleError(true);
                 console.error(e);
             }
 
-            setLoading(false);
+            toggleLoading(false);
         }
 
         fetchRecipes();
@@ -66,6 +71,7 @@ const SearchPage = () => {
             </header>
 
             {loading && <LoadingRoller />}
+            {error && <ErrorText />}
 
             {
                 searchedRecipes ?

@@ -1,14 +1,18 @@
 @import '/src/styles/variables';
+.section {
+  max-width: 100%;
 
-.title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 200;
-}
+  .title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+  }
 
-.meals-per-day {
-  display: flex;
-  width: 90%;
-  margin: 1rem auto;
-  list-style: none;
-  justify-content: space-around;
+  .meals-per-day {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 1rem auto;
+    list-style: none;
+    justify-content: space-around;
+  }
 }
