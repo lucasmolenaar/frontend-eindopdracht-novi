@@ -7,11 +7,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: $darkColor;
   font-family: 'Poppins', sans-serif;
 
   h1 {
     margin: 0;
     font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 950px){
+  .generate-recipe-container {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 }

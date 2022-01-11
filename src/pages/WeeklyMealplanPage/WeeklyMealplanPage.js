@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
 import axios from "axios";
+import {ScreenWidthContext} from "../../context/ScreenWidthContext";
 
 import NavBar from "../../components/NavBar/NavBar";
 import MealplanForm from "../../components/MealplanForm/MealplanForm";
@@ -8,6 +9,7 @@ import MealsPerDay from "../../components/MealsPerDay/MealsPerDay";
 import Quote from "../../components/Quote/Quote";
 import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 import ErrorText from "../../components/ErrorText/ErrorText";
+import NavBarResp from "../../components/NavBarResp/NavBarResp";
 
 import styles from './WeeklyMealplanPage.module.scss';
 
@@ -18,6 +20,8 @@ const WeeklyMealplanPage = () => {
     const [loading, toggleLoading] = useState(false);
     const [error, toggleError] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
+
+    const { screenWidth } = useContext(ScreenWidthContext);
 
     console.log(week);
     const fetchMeals = async (e) => {
@@ -43,7 +47,7 @@ const WeeklyMealplanPage = () => {
 
     return (
         <div className={styles['weekly-page']}>
-            <NavBar />
+            {screenWidth < 950 ? <NavBarResp /> : <NavBar />}
 
             <header>
                 <h1>Create a mealplan for a week!</h1>

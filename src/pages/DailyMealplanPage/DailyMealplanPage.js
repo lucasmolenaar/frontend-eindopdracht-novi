@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from "axios";
+import { ScreenWidthContext } from "../../context/ScreenWidthContext";
 
 import NavBar from "../../components/NavBar/NavBar";
 import MealplanForm from "../../components/MealplanForm/MealplanForm";
@@ -11,9 +12,9 @@ import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 import ErrorText from "../../components/ErrorText/ErrorText";
 
 import styles from './DailyMealplanPage.module.scss';
+import NavBarResp from "../../components/NavBarResp/NavBarResp";
 
 const DailyMealplanPage = () => {
-
     const [meals, setMeals] = useState([]);
     const [nutrients, setNutrients] = useState({});
     const [calories, setCalories] = useState('');
@@ -21,6 +22,8 @@ const DailyMealplanPage = () => {
     const [loading, toggleLoading] = useState(false);
     const [error, toggleError] = useState(false);
     const [calorieError, toggleCalorieError] = useState(false);
+
+    const { screenWidth } = useContext(ScreenWidthContext);
 
     const fetchMeals = async (e) => {
         e.preventDefault();
@@ -31,7 +34,7 @@ const DailyMealplanPage = () => {
             if (calories >= 250) {
                 toggleCalorieError(false);
 
-                const result = await axios.get(`https://api.spoonacular.com/mealplnner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
+                const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
                 setMeals(result.data.meals);
                 setNutrients(result.data.nutrients)
             } else {
@@ -46,7 +49,7 @@ const DailyMealplanPage = () => {
 
     return (
         <main className={styles.main}>
-            <NavBar />
+            {screenWidth < 950 ? <NavBarResp /> : <NavBar />}
 
             <header>
                 <h1>Create a mealplan for today!</h1>
