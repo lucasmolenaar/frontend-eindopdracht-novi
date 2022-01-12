@@ -12,18 +12,22 @@
     margin: auto;
     display: flex;
 
-    .logo-container {
-      height: 10vh;
-      padding: 0 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: $primaryColor;
+    .logo-link {
+      text-decoration: none;
 
-      .logo {
-        margin: 0;
-        color: $secondaryColor;
-        font-weight: 200;
+      .logo-container {
+        height: 10vh;
+        padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $primaryColor;
+
+        .logo {
+          margin: 0;
+          color: $secondaryColor;
+          font-weight: 200;
+        }
       }
     }
 

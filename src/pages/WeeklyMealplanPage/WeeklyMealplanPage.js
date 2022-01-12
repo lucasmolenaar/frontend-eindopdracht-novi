@@ -33,8 +33,8 @@ const WeeklyMealplanPage = () => {
                 toggleCalorieError(false);
 
                 const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=week&targetCalories=${calories}&diet=${diet}`);
-                console.log(result.data);
                 setWeek(result.data.week);
+                setCalories('');
             } else {
                 toggleCalorieError(true);
             }

@@ -36,7 +36,8 @@ const DailyMealplanPage = () => {
 
                 const result = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}&diet=${diet}`);
                 setMeals(result.data.meals);
-                setNutrients(result.data.nutrients)
+                setNutrients(result.data.nutrients);
+                setCalories('');
             } else {
                 toggleCalorieError(true);
             }

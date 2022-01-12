@@ -17,3 +17,15 @@
   outline: none;
   margin-right: 1rem;
 }
+
+@media screen and (max-width: 950px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .calories-input,
+  .select-diet {
+    padding: 5px 10px;
+    margin: 0 0 1rem 0;
+  }
+}

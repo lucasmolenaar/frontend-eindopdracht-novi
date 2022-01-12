@@ -5,15 +5,20 @@
   height: 10vh;
   background-color: $primaryColor;
   position: relative;
+  z-index: 10;
 
-  .logo {
-    margin: 0;
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: 200;
-    color: $secondaryColor;
+  .logo-link {
+    text-decoration: none;
+
+    .logo {
+      margin: 0;
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 200;
+      color: $secondaryColor;
+    }
   }
 
   .nav-items {
@@ -24,7 +29,6 @@
     padding: 0;
     height: auto;
     background-color: $primaryColor;
-    z-index: 1;
 
     .nav-item:nth-child(1) {
       border-top: 1px solid rgba(241, 238, 233, 0.5);

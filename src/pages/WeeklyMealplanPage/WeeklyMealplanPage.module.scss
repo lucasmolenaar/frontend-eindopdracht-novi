@@ -13,6 +13,10 @@
   header {
     height: 200px;
 
+    h1 {
+      text-align: center;
+    }
+
     .calorie-error-text {
       font-style: italic;
       font-size: .8rem;
@@ -23,5 +27,21 @@
 
   main {
     max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .weekly-page {
+
+    header {
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .calorie-error-text {
+        margin-top: 80px;
+      }
+    }
   }
 }

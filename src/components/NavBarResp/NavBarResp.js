@@ -13,7 +13,9 @@ function NavBarResp() {
 
     return (
         <nav className={styles.nav}>
-            <h1 className={styles.logo}>Let's Cook</h1>
+            <NavLink className={styles['logo-link']} exact to='/'>
+                <h1 className={styles.logo}>Let's Cook</h1>
+            </NavLink>
 
             {
                 showMenu &&
