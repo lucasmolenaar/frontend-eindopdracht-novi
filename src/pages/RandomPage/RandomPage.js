@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useContext, useState } from 'react';
 import axios from "axios";
+import { ScreenWidthContext } from "../../context/ScreenWidthContext";
 
 import NavBar from "../../components/NavBar/NavBar";
 import RandomRecipeInformation from "../../components/RandomRecipeInformation/RandomRecipeInformation";
@@ -8,15 +9,18 @@ import RandomRecipeInstructions from "../../components/RandomRecipeInstructions/
 import GetRandomRecipe from "../../components/GetRandomRecipe/GetRandomRecipe";
 import Footer from "../../components/Footer/Footer";
 import Quote from "../../components/Quote/Quote";
-
-import styles from './RandomPage.module.scss';
 import LoadingRoller from "../../components/LoadingRoller/LoadingRoller";
 import ErrorText from "../../components/ErrorText/ErrorText";
+import NavBarResp from "../../components/NavBarResp/NavBarResp";
+
+import styles from './RandomPage.module.scss';
 
 const RandomPage = () => {
     const [randomRecipe, setRandomRecipe] = useState({});
     const [loading, toggleLoading] = useState(false);
     const [error, toggleError] = useState(false);
+
+    const { screenWidth } = useContext(ScreenWidthContext);
 
     const fetchRandomRecipe = async () => {
         toggleLoading(true);
@@ -28,7 +32,6 @@ const RandomPage = () => {
                 behavior: "smooth"
             })
             const result = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&limitLicense=true`);
-            console.log(result.data.recipes[0]);
             setRandomRecipe(result.data.recipes[0]);
         } catch (e) {
             toggleError(true);
@@ -39,7 +42,7 @@ const RandomPage = () => {
 
     return (
         <div className={styles['random-page']}>
-            <NavBar />
+            {screenWidth < 950 ? <NavBarResp /> : <NavBar />}
 
             {
                 Object.keys(randomRecipe).length > 0 ?

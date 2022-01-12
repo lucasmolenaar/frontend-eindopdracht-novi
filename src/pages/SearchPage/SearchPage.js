@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from "axios";
+import { ScreenWidthContext } from "../../context/ScreenWidthContext";
 
 import NavBar from "../../components/NavBar/NavBar";
+import NavBarResp from "../../components/NavBarResp/NavBarResp";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import Footer from "../../components/Footer/Footer";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
@@ -16,6 +18,8 @@ const SearchPage = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
+
+    const { screenWidth } = useContext(ScreenWidthContext);
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -58,7 +62,7 @@ const SearchPage = () => {
 
     return (
         <div className={styles['search-page']}>
-            <NavBar />
+            {screenWidth < 950 ? <NavBarResp /> : <NavBar />}
 
             <header className={styles.header}>
                 <h1>What recipe are you looking for?</h1>

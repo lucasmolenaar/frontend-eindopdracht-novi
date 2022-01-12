@@ -13,6 +13,10 @@
   header {
     height: 200px;
 
+    h1 {
+      text-align: center;
+    }
+
     .calorie-error-text {
       font-style: italic;
       font-size: .8rem;
@@ -32,6 +36,23 @@
         margin: 1rem auto;
         list-style: none;
         justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .main {
+
+    header {
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .calorie-error-text {
+        margin-top: 80px;
       }
     }
   }

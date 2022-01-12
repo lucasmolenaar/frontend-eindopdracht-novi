@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 import styles from './NavBar.module.scss';
 
@@ -7,11 +7,13 @@ const NavBar = () => {
     return (
         <div className={styles.NavBar}>
             <nav className={styles.navbar}>
-                <div className={styles['logo-container']}>
-                    <h1 className={styles.logo}>
-                        Let's Cook
-                    </h1>
-                </div>
+                <NavLink className={styles['logo-link']} exact to='/'>
+                    <div className={styles['logo-container']}>
+                        <h1 className={styles.logo}>
+                            Let's Cook
+                        </h1>
+                    </div>
+                </NavLink>
 
                 <ul className={styles['nav-items']}>
                     <li><NavLink exact activeClassName={styles['active-nav-item']} className={styles['nav-item']} to="/">Search</NavLink></li>

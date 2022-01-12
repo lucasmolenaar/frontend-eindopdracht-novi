@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import { useForm } from 'react-hook-form';
+
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './LoginForm.module.scss';
-import {Link} from "react-router-dom";
 
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

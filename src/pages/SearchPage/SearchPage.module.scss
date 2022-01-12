@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-family: 'Poppins', sans-serif;
   color: $darkColor;
 
@@ -39,4 +40,17 @@
   flex-wrap: wrap;
   list-style: none;
   margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .header {
+    height: auto;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .recipes-container {
+    margin-top: 100px;
+  }
 }

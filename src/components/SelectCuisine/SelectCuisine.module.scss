@@ -18,3 +18,13 @@
 .select-cuisine:invalid {
   color: #777;
 }
+
+@media screen and (max-width: 950px) {
+
+
+    .select-cuisine {
+      margin-right: 1rem;
+      padding: 5px 10px;
+      margin: 0 0 1rem 0;
+    }
+}

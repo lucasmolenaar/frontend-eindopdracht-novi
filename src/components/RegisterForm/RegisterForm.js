@@ -1,15 +1,14 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './RegisterForm.module.scss';
-import {Link} from "react-router-dom";
 
 const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    console.log(errors);
     const onFormSubmit = data => console.log(data);
 
     return (
