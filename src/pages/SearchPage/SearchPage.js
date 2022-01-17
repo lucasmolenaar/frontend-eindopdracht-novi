@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from "axios";
+import { animated, useSpring } from "react-spring";
 import { ScreenWidthContext } from "../../context/ScreenWidthContext";
 
 import NavBar from "../../components/NavBar/NavBar";
@@ -20,6 +21,14 @@ const SearchPage = () => {
     const [loading, toggleLoading] = useState(false);
 
     const { screenWidth } = useContext(ScreenWidthContext);
+
+    const props = useSpring({
+        to: { opacity: 1 },
+        from: { opacity: 0 },
+        config: {
+            duration: 1000
+        }
+    })
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -79,22 +88,24 @@ const SearchPage = () => {
 
             {
                 searchedRecipes ?
-                    <section className={styles['recipes-container']}>
-                        <ul className={styles['recipe-list']}>
-                            {searchedRecipes.map(recipe => {
-                                return (
-                                    <RecipeCard
-                                        key={recipe.id}
-                                        title={recipe.title}
-                                        imgUrl={recipe.image}
-                                        calories={recipe.nutrition.nutrients[0].amount}
-                                        prepTime={recipe.readyInMinutes}
-                                        linkUrl={recipe.sourceUrl}
-                                    />
-                                );
-                            })}
-                        </ul>
-                    </section>
+                    <animated.div style={props}>
+                        <section className={styles['recipes-container']}>
+                            <ul className={styles['recipe-list']}>
+                                {searchedRecipes.map(recipe => {
+                                    return (
+                                        <RecipeCard
+                                            key={recipe.id}
+                                            title={recipe.title}
+                                            imgUrl={recipe.image}
+                                            calories={recipe.nutrition.nutrients[0].amount}
+                                            prepTime={recipe.readyInMinutes}
+                                            linkUrl={recipe.sourceUrl}
+                                        />
+                                    );
+                                })}
+                            </ul>
+                        </section>
+                    </animated.div>
                     :
                     <div>
 
