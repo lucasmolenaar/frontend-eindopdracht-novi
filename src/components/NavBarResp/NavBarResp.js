@@ -6,6 +6,7 @@ import styles from './NavBarResp.module.scss';
 
 function NavBarResp() {
     const [showMenu, toggleShowMenu] = useState(false);
+    const [isAuth, toggleIsAuth] = useState(false);
 
     const toggleNav = () => {
         toggleShowMenu(!showMenu);
@@ -19,14 +20,23 @@ function NavBarResp() {
 
             {
                 showMenu &&
-                <ul className={styles['nav-items']}>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/">Search</NavLink></li>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/random">Random</NavLink></li>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/daily">Daily Mealplan</NavLink></li>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/weekly">Weekly Mealplan</NavLink></li>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/register">Register</NavLink></li>
-                    <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/login">Login</NavLink></li>
-                </ul>
+                (!isAuth ?
+                        <ul className={styles['nav-items']}>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/">Search</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/random">Random</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/daily">Daily Mealplan</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/weekly">Weekly Mealplan</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/register">Register</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/login">Login</NavLink></li>
+                        </ul>
+                    :
+                        <ul className={styles['nav-items']}>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/">Search</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/random">Random</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/daily">Daily Mealplan</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/weekly">Weekly Mealplan</NavLink></li>
+                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/login">Log Out</NavLink></li>
+                        </ul>)
             }
 
 
