@@ -1,26 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
+import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './LoginForm.module.scss';
-import axios from "axios";
 
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { login } = useContext(AuthContext);
 
     const handleFormSubmit = async (data) => {
-        console.log(data);
-
         try {
             const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
                 'username': data.username,
                 'password': data.password,
             });
 
-            console.log(result);
+            console.log(result.data);
+            login(result.data);
         } catch (e) {
             console.error(e.response);
         }

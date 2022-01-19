@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
+import {AuthContext} from "../../context/AuthContext";
 
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
-
-    const [isAuth, toggleIsAuth] = useState(false);
+    const { logout, authState: { isAuth, user} } = useContext(AuthContext);
     const [isHovering, toggleIsHovering] = useState(false);
 
     return (
@@ -62,7 +62,7 @@ const NavBar = () => {
                 >
                     <FaUserAlt />
                     <span className={styles.username}>
-                        {isHovering ? <span onClick={() => toggleIsAuth(false)}>Log Out</span> : <span>gebruikersnaam</span>}
+                        {isHovering ? <span onClick={logout}>Log Out</span> : <span>{user.username}</span>}
                     </span>
                 </div>
             </nav>

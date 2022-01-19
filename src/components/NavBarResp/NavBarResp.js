@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { NavLink } from "react-router-dom";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import {AuthContext} from "../../context/AuthContext";
 
 import styles from './NavBarResp.module.scss';
 
 function NavBarResp() {
+    const { logout, authState: { isAuth} } = useContext(AuthContext);
     const [showMenu, toggleShowMenu] = useState(false);
-    const [isAuth, toggleIsAuth] = useState(false);
 
     const toggleNav = () => {
         toggleShowMenu(!showMenu);
@@ -35,7 +36,7 @@ function NavBarResp() {
                             <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/random">Random</NavLink></li>
                             <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/daily">Daily Mealplan</NavLink></li>
                             <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/weekly">Weekly Mealplan</NavLink></li>
-                            <li className={styles['nav-item']}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/login">Log Out</NavLink></li>
+                            <li className={styles['nav-item']} onClick={logout}><NavLink className={styles['nav-link']} activeClassName={styles['active-nav-item']} exact to="/login">Log Out</NavLink></li>
                         </ul>)
             }
 
