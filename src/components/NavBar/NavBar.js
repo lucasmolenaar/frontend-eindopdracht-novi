@@ -6,7 +6,7 @@ import styles from './NavBar.module.scss';
 
 const NavBar = () => {
 
-    const [isAuth, toggleIsAuth] = useState(true);
+    const [isAuth, toggleIsAuth] = useState(false);
     const [isHovering, toggleIsHovering] = useState(false);
 
     return (

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {NavLink} from "react-router-dom";
-import {HiOutlineMenuAlt4} from "react-icons/hi";
+import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 import styles from './NavBarResp.module.scss';
 

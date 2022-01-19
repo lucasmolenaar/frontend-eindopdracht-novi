@@ -5,13 +5,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ScreenWidthContextProvider from "./context/ScreenWidthContext";
+import AuthContextProvider from "./context/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
-          <ScreenWidthContextProvider>
-              <App />
-          </ScreenWidthContextProvider>
+          <AuthContextProvider>
+              <ScreenWidthContextProvider>
+                  <App />
+              </ScreenWidthContextProvider>
+          </AuthContextProvider>
       </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

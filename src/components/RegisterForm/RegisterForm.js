@@ -1,18 +1,35 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './RegisterForm.module.scss';
+import axios from "axios";
 
 const RegisterForm = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onFormSubmit = data => console.log(data);
+
+    const handleFormSubmit = async (data) => {
+        try {
+            const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                'username': data.username,
+                'email': data.email,
+                'password': data.password,
+            })
+
+            console.log(result);
+
+            history.push('/login');
+        } catch (e) {
+            console.error(e.response);
+        }
+    }
 
     return (
-            <form className={styles['register-form']} onSubmit={handleSubmit(onFormSubmit)}>
+            <form className={styles['register-form']} onSubmit={handleSubmit(handleFormSubmit)}>
                 <h1>Register</h1>
 
                 <InputField
