@@ -78,11 +78,7 @@ const AuthContextProvider = ({ children }) => {
 
     // ** LOGIN **
     const login = ({ accessToken, email, username, id }) => {
-        console.log('encoded: ', accessToken);
         localStorage.setItem('token', accessToken);
-
-        const decodedToken = jwt_decode(accessToken);
-        console.log(decodedToken);
 
         setAuthState({
             ...authState,
@@ -95,7 +91,6 @@ const AuthContextProvider = ({ children }) => {
             }
         });
 
-        console.log('Gebruiker is ingelogd')
         history.push('/');
     }
 
@@ -109,8 +104,6 @@ const AuthContextProvider = ({ children }) => {
             user: null,
             status: 'done'
         });
-
-        console.log('Gebruiker is uitgelogd')
     }
 
     // ** CONTEXT DATA **
