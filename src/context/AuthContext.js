@@ -2,6 +2,7 @@ import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
 import { useHistory } from "react-router-dom";
+import {toast} from "react-toastify";
 
 import checkTokenExpiration from "../helpers/checkTokenExpiration";
 import LoadingRoller from "../components/LoadingRoller/LoadingRoller";
@@ -58,6 +59,7 @@ const AuthContextProvider = ({ children }) => {
                 fetchUserData();
             } else {
                 console.log('Token has been expired, please log in.');
+                localStorage.clear();
 
                 setAuthState({
                     ...authState,
@@ -92,6 +94,8 @@ const AuthContextProvider = ({ children }) => {
         });
 
         history.push('/');
+
+        toast.success('You have successfully logged in!');
     }
 
     // ** LOGOUT **
@@ -104,6 +108,8 @@ const AuthContextProvider = ({ children }) => {
             user: null,
             status: 'done'
         });
+
+        toast.success('You have successfully logged out!');
     }
 
     // ** CONTEXT DATA **
