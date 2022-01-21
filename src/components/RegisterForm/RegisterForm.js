@@ -1,6 +1,8 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import {toast} from "react-toastify";
 
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
@@ -8,21 +10,52 @@ import Button from "../Button/Button";
 import styles from './RegisterForm.module.scss';
 
 const RegisterForm = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onFormSubmit = data => console.log(data);
+
+    const handleFormSubmit = async (data) => {
+        const source = axios.CancelToken.source();
+
+        try {
+            await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                'username': data.username,
+                'email': data.email,
+                'password': data.password,
+            }, {
+                cancelToken: source.token,
+            })
+
+            history.push('/login');
+
+            toast('You have successfully registered an account!')
+
+            return function cleanup() { source.cancel(); }
+
+        } catch (e) {
+            console.error(e.response);
+        }
+    }
 
     return (
-            <form className={styles['register-form']} onSubmit={handleSubmit(onFormSubmit)}>
+            <form className={styles['register-form']} onSubmit={handleSubmit(handleFormSubmit)}>
                 <h1>Register</h1>
 
                 <InputField
                     labelText='Username'
                     inputId='username-input'
                     inputName='username'
-                    placeholder="Username"
+                    placeholder="Username (min. 6)"
                     register={register}
                     errors={errors}
-                    validationRules={{required: 'Username is required'}}
+                    validationRules={
+                        {
+                            required: 'Username is required',
+                            minLength: {
+                                value: 6,
+                                message: 'Username should be at least 6 characters '
+                            }
+                        }
+                    }
                 />
 
                 <InputField
@@ -41,10 +74,18 @@ const RegisterForm = () => {
                     inputType='password'
                     inputId='password-input'
                     inputName='password'
-                    placeholder="Password"
+                    placeholder="Password (min. 6)"
                     register={register}
                     errors={errors}
-                    validationRules={{required: 'Password is required'}}
+                    validationRules={
+                        {
+                            required: 'Password is required',
+                            minLength: {
+                                value: 6,
+                                message: 'Password should be at least 6 characters '
+                            }
+                        }
+                    }
                 />
 
                 <Button

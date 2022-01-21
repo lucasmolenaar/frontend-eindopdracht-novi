@@ -98,5 +98,20 @@
         }
       }
     }
+
+    .account {
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $darkColor;
+      cursor: pointer;
+      padding: 0 10px;
+
+      .username {
+        margin-left: 1rem;
+        font-weight: 200;
+      }
+    }
   }
 }

@@ -15,6 +15,13 @@
     color: $darkColor;
   }
 
+  .error-text {
+    font-style: italic;
+    font-size: .8rem;
+    text-align: center;
+    color: $errorColor;
+  }
+
   p {
     .signup-link {
       color: $primaryColor;
