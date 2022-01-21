@@ -15,15 +15,21 @@ const LoginForm = () => {
     const { login } = useContext(AuthContext);
 
     const handleFormSubmit = async (data) => {
+        const source = axios.CancelToken.source();
+
         try {
             toggleCredentialError(false);
             const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
                 'username': data.username,
                 'password': data.password,
+            }, {
+                cancelToken: source.token,
             });
 
-            console.log(result.data);
             login(result.data);
+
+            return function cleanup() { source.cancel(); }
+
         } catch (e) {
             console.error(e.response);
             toggleCredentialError(true);

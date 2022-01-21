@@ -31,13 +31,19 @@ const SearchPage = () => {
     })
 
     useEffect(() => {
+        const source = axios.CancelToken.source();
+
         const fetchRecipes = async () => {
             toggleLoading(true);
             toggleError(false);
 
             try {
-                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&number=12&addRecipeNutrition=true`);
+                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&number=12&addRecipeNutrition=true`, {
+                    cancelToken: source.token,
+                });
                 setSearchedRecipes(result.data.results);
+
+                return function cleanup() { source.cancel(); }
             } catch (e) {
                 toggleError(true);
             }
@@ -50,13 +56,19 @@ const SearchPage = () => {
     }, [])
 
     useEffect(() => {
+        const source = axios.CancelToken.source();
+
         const fetchRecipes = async () => {
             toggleLoading(true);
             toggleError(false);
 
             try {
-                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&cuisine=${cuisine}&number=12&addRecipeNutrition=true`);
+                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchQuery}&cuisine=${cuisine}&number=12&addRecipeNutrition=true`, {
+                    cancelToken: source.token,
+                });
                 setSearchedRecipes(result.data.results);
+
+                return function cleanup() { source.cancel(); }
             } catch (e) {
                 toggleError(true);
                 console.error(e);

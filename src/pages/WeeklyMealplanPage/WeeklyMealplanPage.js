@@ -23,7 +23,6 @@ const WeeklyMealplanPage = () => {
 
     const { screenWidth } = useContext(ScreenWidthContext);
 
-    console.log(week);
     const fetchMeals = async (e) => {
         e.preventDefault();
         toggleLoading(true);

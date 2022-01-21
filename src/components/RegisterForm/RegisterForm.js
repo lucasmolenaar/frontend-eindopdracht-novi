@@ -1,29 +1,36 @@
 import React from 'react';
-import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import {toast} from "react-toastify";
 
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
 import styles from './RegisterForm.module.scss';
-import axios from "axios";
-import {toast} from "react-toastify";
 
 const RegisterForm = () => {
     const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleFormSubmit = async (data) => {
+        const source = axios.CancelToken.source();
+
         try {
             await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
                 'username': data.username,
                 'email': data.email,
                 'password': data.password,
+            }, {
+                cancelToken: source.token,
             })
 
             history.push('/login');
 
             toast('You have successfully registered an account!')
+
+            return function cleanup() { source.cancel(); }
+
         } catch (e) {
             console.error(e.response);
         }
