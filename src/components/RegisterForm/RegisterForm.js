@@ -13,10 +13,6 @@ const RegisterForm = () => {
     const history = useHistory()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    //ERROR HANDLING VOOR REGISTREREN TOEVOEGEN
-    //NET ZOALS BIJ INLOGGEN
-    //MAAR DAN VOOR USERNAME + WW MINIMAAL 6 TEKENS
-
     const handleFormSubmit = async (data) => {
         try {
             await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
@@ -41,10 +37,18 @@ const RegisterForm = () => {
                     labelText='Username'
                     inputId='username-input'
                     inputName='username'
-                    placeholder="Username"
+                    placeholder="Username (min. 6)"
                     register={register}
                     errors={errors}
-                    validationRules={{required: 'Username is required'}}
+                    validationRules={
+                        {
+                            required: 'Username is required',
+                            minLength: {
+                                value: 6,
+                                message: 'Username should be at least 6 characters '
+                            }
+                        }
+                    }
                 />
 
                 <InputField
@@ -63,10 +67,18 @@ const RegisterForm = () => {
                     inputType='password'
                     inputId='password-input'
                     inputName='password'
-                    placeholder="Password"
+                    placeholder="Password (min. 6)"
                     register={register}
                     errors={errors}
-                    validationRules={{required: 'Password is required'}}
+                    validationRules={
+                        {
+                            required: 'Password is required',
+                            minLength: {
+                                value: 6,
+                                message: 'Password should be at least 6 characters '
+                            }
+                        }
+                    }
                 />
 
                 <Button
