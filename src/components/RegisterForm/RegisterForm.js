@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
             history.push('/login');
 
-            toast('You have successfully registered an account!')
+            toast.success('You have successfully registered an account!')
 
             return function cleanup() { source.cancel(); }
 
