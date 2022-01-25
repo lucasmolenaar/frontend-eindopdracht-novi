@@ -5,7 +5,7 @@ import SelectCuisine from "../SelectCuisine/SelectCuisine";
 
 import styles from './SearchForm.module.scss';
 
-const SearchForm = ({ setSearchQueryHandler, setCuisineHandler, searchedRecipes }) => {
+const SearchForm = ({ setSearchQueryHandler, setCuisineHandler  }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [cuisineValue, setCuisineValue] = useState('');
 

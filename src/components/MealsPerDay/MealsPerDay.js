@@ -5,9 +5,6 @@ import MealplanRecipeCard from "../MealplanRecipeCard/MealplanRecipeCard";
 import styles from './MealsPerDay.module.scss';
 
 function MealsPerDay({ day, info }) {
-
-    console.log(info)
-
     return (
         <section className={styles.section}>
             <h1 className={styles.title}>{day}</h1>

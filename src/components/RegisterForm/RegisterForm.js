@@ -32,7 +32,9 @@ const RegisterForm = () => {
             return function cleanup() { source.cancel(); }
 
         } catch (e) {
-            console.error(e.response);
+            if (e.response.status === 400) {
+                toast.error('An account is already registered with your email address.')
+            }
         }
     }
 
