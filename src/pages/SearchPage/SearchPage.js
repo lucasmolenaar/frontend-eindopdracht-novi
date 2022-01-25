@@ -91,7 +91,6 @@ const SearchPage = () => {
                 <SearchForm
                     setSearchQueryHandler={setSearchQuery}
                     setCuisineHandler={setCuisine}
-                    searchedRecipes={searchedRecipes}
                 />
             </header>
 

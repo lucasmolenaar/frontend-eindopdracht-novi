@@ -16,7 +16,7 @@ const AuthContextProvider = ({ children }) => {
         user: null,
         status: 'pending',
     });
-
+    
     // ** PERSIST ON REFRESH **
     useEffect(() => {
         const token = localStorage.getItem('token');

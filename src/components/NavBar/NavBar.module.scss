@@ -3,7 +3,7 @@
 .NavBar {
   height: 10vh;
   width: 100%;
-  background: $secondaryColor;
+  background-image: linear-gradient(to left, $secondaryColor, #F6F3EE, $secondaryColor);
   font-family: 'Poppins', sans-serif;
   position: relative;
 

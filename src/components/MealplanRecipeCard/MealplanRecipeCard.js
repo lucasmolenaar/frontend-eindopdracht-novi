@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Button from "../Button/Button";
-
-import styles from './MealplanRecipeCard.module.scss';
 import { FaClock } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
+
+import styles from './MealplanRecipeCard.module.scss';
 
 function MealplanRecipeCard({ title, prepTime, servings, urlLink }) {
     return (
