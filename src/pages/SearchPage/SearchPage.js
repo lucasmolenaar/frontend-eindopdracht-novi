@@ -43,12 +43,12 @@ const SearchPage = () => {
                 });
                 setSearchedRecipes(result.data.results);
 
+                toggleLoading(false);
+
                 return function cleanup() { source.cancel(); }
             } catch (e) {
                 toggleError(true);
             }
-
-            toggleLoading(false);
         }
 
             fetchRecipes();
@@ -68,13 +68,13 @@ const SearchPage = () => {
                 });
                 setSearchedRecipes(result.data.results);
 
+                toggleLoading(false);
+
                 return function cleanup() { source.cancel(); }
             } catch (e) {
                 toggleError(true);
                 console.error(e);
             }
-
-            toggleLoading(false);
         }
 
         fetchRecipes();

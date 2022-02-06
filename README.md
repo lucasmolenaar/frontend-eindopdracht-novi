@@ -15,7 +15,7 @@ Clone ten eerste het project naar jouw eigen lokale machine. Wanneer je dit hebt
 npm install
 ```
 
-Wanneer de installatie voltooid is, moet de API key toegevoegd worden in het .env bestand. Zonder deze API key kunnen er geen network requests gemaakt worden naar de server van de API. Hoe de API key aangevraagd kan worden, lees je hieronder. Om dit project gemakkelijk na te kunnen kijken, lever ik hieronder de API key mee.
+Wanneer de installatie voltooid is, moet de API key toegevoegd worden in het .env bestand. Zonder deze API key kunnen geen network requests gemaakt worden naar de server van de API. Hoe de API key aangevraagd kan worden, lees je hieronder. Om dit project gemakkelijk na te kunnen kijken, lever ik hieronder de API key mee.
 
 **API KEY:** `a2439dc695ce4d36a6407866d26a3ee9`
 
@@ -40,7 +40,7 @@ De browser zal automatisch openen met [http://localhost:3000/](http://localhost:
 
 ## Account
 Voor een aantal pagina's is het nodig om in te loggen voordat de pagina's bezocht kunnen worden. Om in te loggen, maak je eerst een nieuw account aan. Klik op de knop 'Register' om naar de registreer-pagina te gaan.
-Voer hier een gebruikersnaam, geldig emailadres en wachtwoord in. De gebruikersnaam en het wachtwoord bevatten minimaal 6 karakters.
+Voer hier een gebruikersnaam, geldig emailadres en wachtwoord in. De gebruikersnaam en het wachtwoord bevatten minimaal zes karakters.
 Na een succesvolle registratie wordt je doorgestuurd naar de login-pagina, waar je vervolgens met het aangemaakte account kunt inloggen.
 
 Omdat dit project gebruik maakt van de NOVI-backend, is het niet mogelijk om testgebruikers aan te maken. Deze worden namelijk na ongeveer een uur weer verwijderd uit de database.
@@ -55,9 +55,9 @@ Wanneer een gebruiker is ingelogd, verschijnt zijn gebruikersnaam rechtsboven in
 ## Search Page
 [http://localhost:3000/](http://localhost:3000/)
 
-Op deze pagina kun je recepten zoeken op naam of op keuken. Zonder iets in te voeren staan er 12 standaard recepten waar je uit kunt kiezen.
-Voer in het inputveld de naam in van het recept dat je zoekt. Er zullen maximaal 12 recepten verschijnen. Wanneer je zoekt op keuken hoef je niets in te voeren in het tekstveld.
-Als er niets is ingevoerd én er is geen keuken gekozen, is de zoek-knop _disabled_ en kun je hier niet op klikken.
+Op deze pagina kun je recepten zoeken op naam of op keuken. Zonder iets in te voeren, toont de pagina twaalf standaard recepten waar je uit kunt kiezen.
+Voer in het inputveld de naam in van het recept dat je zoekt. Maximaal twaalf recepten zullen verschijnen. Wanneer je zoekt op keuken hoef je niets in te voeren in het tekstveld.
+Als niets is ingevoerd én er is geen keuken gekozen, is de zoek-knop _disabled_ en kun je hier niet op klikken.
 
 Wanneer je een recept gevonden hebt, klik je op de knop _Go to recipe_. Je zult naar de site gebracht worden waar dit recept te vinden is.
 
@@ -66,7 +66,7 @@ Wanneer je een recept gevonden hebt, klik je op de knop _Go to recipe_. Je zult 
 [http://localhost:3000/random](http://localhost:3000/random)
 
 Weet je echt niet waar je trek in hebt? Of zoek je iets wat je nog nooit gegeten hebt? Dan is deze pagina voor jou een uitkomst.
-Met één druk op de knop wordt een random recept gegenereerd. Er wordt aangegeven wat de bereidingstijd is en hoeveel porties het recept bevat. Daarnaast toont de pagina een lijst van ingrediënten en van de stappen die nodig zijn om het recept te maken.
+Met één druk op de knop wordt een random recept gegenereerd. De pagina geeft aan wat de bereidingstijd is en hoeveel porties het recept bevat. Daarnaast toont de pagina een lijst van ingrediënten en van de stappen die nodig zijn om het recept te maken.
 Denk je na alles gelezen te hebben; 'Dit wil ik toch niet..', dan klik je gewoon nogmaals op de 'Generate' knop onderaan de pagina om een nieuw recept te genereren.
 
 
@@ -76,7 +76,7 @@ Denk je na alles gelezen te hebben; 'Dit wil ik toch niet..', dan klik je gewoon
 **Belangrijk:** Om deze pagina te mogen bezoeken, moet je ingelogd zijn met jouw account.
 
 Is één random recept voor jou niet genoeg? Dan genereer je op deze pagina gemakkelijk een maaltijdplan voor een hele dag. Voer in het tekstveld het aantal gewenste calorieën voor de gehele dag in en kies een dieet (niet noodzakelijk).
-Het minimale aantal calorieën is 250. Na het drukken op de 'Create' knop, toont de pagina drie gerechten voor de hele dag. Ook worden de macro's weergegeven. 
+Het minimale aantal calorieën is 250. Na het drukken op de 'Create' knop, toont de pagina drie gerechten voor de hele dag en worden de macro's weergegeven. 
 Om ieder gerecht te bekijken, klik je weer op de 'Go to recipe' knop op het recept. Deze leidt je naar de website waar het complete recept te vinden is. 
 
 
@@ -85,4 +85,4 @@ Om ieder gerecht te bekijken, klik je weer op de 'Go to recipe' knop op het rece
 
 **Belangrijk:** Om deze pagina te mogen bezoeken, moet je ingelogd zijn met jouw account.
 
-Deze pagina werkt precies op dezelfde manier als de 'Daily Mealplan Page', maar geeft recepten voor de hele week terug. Weer worden er drie recepten per dag getoond, maar nu voor iedere dag in de week.
+Deze pagina werkt precies op dezelfde manier als de 'Daily Mealplan Page', maar geeft recepten voor de hele week terug. Weer worden drie recepten per dag getoond, maar nu voor iedere dag in de week.
