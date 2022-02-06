@@ -74,32 +74,32 @@ const WeeklyMealplanPage = () => {
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.tuesday}
                                 day='Tuesday'
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.wednesday}
                                 day='Wednesday'
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.thursday}
                                 day='Thursday'
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.friday}
                                 day='Friday'
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.saturday}
                                 day='Saturday'
                             />
 
                             <MealsPerDay
-                                info={week.monday}
+                                info={week.sunday}
                                 day='Sunday'
                             />
                         </div>
