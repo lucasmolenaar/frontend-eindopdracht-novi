@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/frontend-eindopdracht-novi/static/css/main.e0a22112.css",
-    "main.js": "/frontend-eindopdracht-novi/static/js/main.e867511f.js",
+    "main.js": "/frontend-eindopdracht-novi/static/js/main.6f0f0066.js",
     "static/js/787.93ba7d1b.chunk.js": "/frontend-eindopdracht-novi/static/js/787.93ba7d1b.chunk.js",
     "static/media/register.jpg": "/frontend-eindopdracht-novi/static/media/register.7fba8309cf2e6a3c05d5.jpg",
     "static/media/login.jpg": "/frontend-eindopdracht-novi/static/media/login.c1011974ac836575a17c.jpg",
     "index.html": "/frontend-eindopdracht-novi/index.html",
     "main.e0a22112.css.map": "/frontend-eindopdracht-novi/static/css/main.e0a22112.css.map",
-    "main.e867511f.js.map": "/frontend-eindopdracht-novi/static/js/main.e867511f.js.map",
+    "main.6f0f0066.js.map": "/frontend-eindopdracht-novi/static/js/main.6f0f0066.js.map",
     "787.93ba7d1b.chunk.js.map": "/frontend-eindopdracht-novi/static/js/787.93ba7d1b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0a22112.css",
-    "static/js/main.e867511f.js"
+    "static/js/main.6f0f0066.js"
   ]
 }
